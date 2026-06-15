@@ -1,0 +1,298 @@
+/* ============================================================
+   CONTACT FORM CSS — Umesh Vishwakarma Portfolio
+   Premium Multi-Step Form Styles
+   ============================================================ */
+
+/* ──────────── FORM TITLE ──────────── */
+.form-title {
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 28px;
+}
+
+/* ──────────── PROGRESS BAR ──────────── */
+.progress {
+  height: 5px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--accent-2));
+  border-radius: 100px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ──────────── STEP INDICATORS ──────────── */
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+.steps div {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  background: var(--card);
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.steps div.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent-2));
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+/* ──────────── FORM STEPS ──────────── */
+.step {
+  display: none;
+  animation: stepFade 0.35s ease both;
+}
+.step.active { display: block; }
+
+@keyframes stepFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ──────────── FORM GROUPS ──────────── */
+.group {
+  margin-bottom: 18px;
+}
+.flex {
+  display: flex;
+  gap: 16px;
+}
+.flex .group {
+  flex: 1;
+}
+
+/* ──────────── LABELS ──────────── */
+#contactForm label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin-bottom: 7px;
+}
+
+/* ──────────── INPUTS & TEXTAREA ──────────── */
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.92rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+}
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: var(--text-light);
+  font-size: 0.88rem;
+}
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: var(--primary);
+  background: var(--card);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+#contactForm input[type="date"] {
+  cursor: pointer;
+}
+#contactForm textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* ──────────── FORM BUTTONS ──────────── */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  gap: 12px;
+}
+#contactForm .next {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: linear-gradient(135deg, var(--primary), var(--accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+  margin-left: auto;
+}
+#contactForm .next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45);
+}
+#contactForm .back {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#contactForm .back:hover {
+  background: var(--bg-2);
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+/* ──────────── POPUP OVERLAY ──────────── */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.popup.active { display: flex; }
+
+.popup-box {
+  background: var(--card);
+  padding: 40px 36px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+@keyframes popIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.popup-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 18px;
+}
+.error-icon {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+.success-icon {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.popup-box h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.popup-box p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* ──────────── POPUP BUTTONS ──────────── */
+.popup-box button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--primary), var(--accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+  min-width: 150px;
+  outline: none;
+}
+.popup-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45);
+}
+
+/* ──────────── RESPONSIVE ──────────── */
+@media (max-width: 680px) {
+  .contact-form-panel {
+    padding: 28px 22px;
+  }
+  .flex {
+    flex-direction: column;
+    gap: 0;
+  }
+  .steps div {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+  .buttons {
+    flex-direction: column-reverse;
+  }
+  #contactForm .next,
+  #contactForm .back {
+    width: 100%;
+    justify-content: center;
+  }
+}
