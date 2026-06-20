@@ -523,7 +523,7 @@
     }
 
     function showConfirm(d) {
-      const labels = { firstName: 'First Name', lastName: 'Last Name', dob: 'Date of Birth', email: 'Email', address: 'Address', message: 'Message' };
+      const labels = { firstName: 'First Name', lastName: 'Last Name', mobile: 'Mobile Number', email: 'Email', address: 'Address', message: 'Message' };
       document.getElementById('confirmData').innerHTML = Object.entries(d)
         .map(([k, v]) => `<div class="confirm-row"><span class="confirm-key">${labels[k] || k}</span><span class="confirm-val">${v}</span></div>`).join('');
     }
@@ -553,9 +553,7 @@
             email: formData.email,
             _subject: "📬 New Message from " + fullName + " | Portfolio",
             _template: "table",
-            "Full Name": fullName,
-            "Email": formData.email,
-            "Date of Birth": formData.dob,
+            "Mobile Number": formData.mobile,
             "Address": formData.address,
             "Message": formData.message,
             "Sent At (IST)": now,
