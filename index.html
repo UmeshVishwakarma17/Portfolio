@@ -304,7 +304,7 @@
           </div>
 
           <!-- STEP 1 -->
-          <div class="step active">
+<div class="step active">
             <div class="flex">
               <div class="group">
                 <label>First Name</label>
@@ -317,12 +317,12 @@
             </div>
             <div class="flex">
               <div class="group">
-                <label>Date of Birth</label>
-                <input type="date" name="dob" required>
+                <label>Mobile Number</label>
+                <input type="tel" name="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" title="Please enter a valid 10-digit mobile number" required>
               </div>
               <div class="group">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="you@example.com" required>
+                <input type="email" name="email" placeholder="you@example.com" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (e.g., you@example.com)" required>
               </div>
             </div>
             <div class="group">
